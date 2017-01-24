@@ -2,9 +2,7 @@ package net.saltfactory.tutorial;
 
 import java.io.Serializable;
 
-/**
- * Created by saltfactory<saltfactory@gmail.com> on 11/21/15.
- */
+
 public class Comment implements Serializable {
     private long id;
     private long articleId;

@@ -7,16 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Created by saltfactory<saltfactory@gmail.com> on 11/21/15.
- */
 @Service
 public class ArticlesService {
     @Autowired
     FixturesProperty fixturesProperty;
 
     public List<Article> getArticles() {
-        List<Article> articles = new ArrayList<>(fixturesProperty.getArticles());
+        List<Article> articles = fixturesProperty.getArticles();
         return articles;
     }
 

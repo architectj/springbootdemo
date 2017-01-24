@@ -1,14 +1,15 @@
 package net.saltfactory.tutorial;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-/**
- * Created by saltfactory<saltfactory@gmail.com> on 11/21/15.
- */
-@RestController
+//@RestController
+@Controller
 public class ArticlesController {
     @Autowired
     ArticlesService articlesService;
@@ -49,5 +50,18 @@ public class ArticlesController {
         return articlesService.deleteArticle(id);
     }
 
+
+    @RequestMapping(value = "/articles/new", method = RequestMethod.GET)
+    public String newArticle(Model model){
+        Article article = new Article();
+        model.addAttribute("article", article);
+        return "articles/new";
+    }
+
+    @RequestMapping(value = "/articles", method = RequestMethod.POST)
+    @ResponseBody
+    public Article submit(@ModelAttribute Article article,  MultipartFile file){
+        return article;
+    }
 
 }
